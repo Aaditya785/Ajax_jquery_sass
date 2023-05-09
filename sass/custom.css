@@ -3,12 +3,16 @@
   padding: 0px;
 }
 
+body {
+  background: #f7264f;
+  background-image: radial-gradient(at 90% 59%, hsl(295, 70%, 50%) 0px, transparent 50%), radial-gradient(at 32% 88%, hsl(23, 65%, 45%) 0px, transparent 50%), radial-gradient(at 20% 87%, hsl(283, 91%, 55%) 0px, transparent 50%), radial-gradient(at 34% 69%, hsl(62, 74%, 76%) 0px, transparent 50%), radial-gradient(at 58% 30%, hsl(141, 63%, 43%) 0px, transparent 50%);
+  height: 100vh;
+}
+
 div {
-  background: linear-gradient(45deg, violet, blue);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100vw;
+  border: 1px solid black;
 }/*# sourceMappingURL=custom.css.map */
