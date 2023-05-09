@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;1,600&display=swap');
+
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #f7264f;
+    background-image: radial-gradient(at 90.0% 59.0%, hsl(295, 70%, 50%) 0px, transparent 50%), radial-gradient(at 32.0% 88.0%, hsl(23, 65%, 45%) 0px, transparent 50%), radial-gradient(at 20.0% 87.0%, hsl(283, 91%, 55%) 0px, transparent 50%), radial-gradient(at 34.0% 69.0%, hsl(62, 74%, 76%) 0px, transparent 50%), radial-gradient(at 58.0% 30.0%, hsl(141, 63%, 43%) 0px, transparent 50%);
+    height: 100vh;
+}
+
+.main {
+
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    box-sizing: border-box;
+    height: 100vh;
+
+    .info_dp {
+        display: flex;
+        justify-content: space-between;
+        font-size: 2rem;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+
+    .q_a_box {
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        height: fit-content;
+        position: absolute;
+        border-radius: 10px;
+        top: 50%;
+        right: 50%;
+        transform: translate(50%, -50%);
+    }
+
+    #qst {
+        margin-top: 20%;
+        text-align: center;
+        font-size: 1.9rem;
+        color: beige;
+    }
+
+    .t_f {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10%;
+        font-size: 2rem;
+
+        #ans {
+            font-size: 1.3rem;
+            margin: 5%;
+            padding: 2%;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            background-color: rgba(0, 0, 0, 0.1);
+            border: none;
+        }
+    }
+}
+
+.opt_box {
+    border: 1px solid black;
+    border-radius: 20px;
+    display: flex;
+    box-shadow: 10px 10px 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+
+    .sel_option {
+        display: flex;
+        flex-direction: column;
+
+        label{
+            font-weight: bolder;
+        }
+
+        select {
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            outline: none;
+            border: none;
+            font-weight: bold;
+        }
+    }
+
+    button {
+        width: fit-content;
+        margin-top: 20px;
+        padding: 5px;
+        font-weight: bold;
+        position: relative;
+        background-color: rgba(0, 0, 0, 0.37);
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        left: 40%
+    }
+}
