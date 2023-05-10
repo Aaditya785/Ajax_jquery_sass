@@ -20,27 +20,38 @@ sub_btn.click(()=>{
 })
 
 
-
-
-
-async function here (url){
+  
+  async function here (url){
 	const response = await fetch(url);
 	const result = await response.json();
-
 	console.log(result)
-
+  
 	const question = result.results[0];
 	const options = [...question.incorrect_answers, question.correct_answer].sort();
 	$("#ctgy").append(" "+question.category);
 	$("#qst").append(" "+question.question);
 	const div = $(".t_f");
-  options.forEach(option => {
-    const btn = $("<button id='ans'>");
-    btn.text(option);
-    div.append(btn);
-  });
-  $("div").append(div);
+
+	function handle(event) {
+		event.stopPropagation();
+		const buttonId = $(this).text();
+		if(buttonId === question.correct_answer){
+			alert("You Gotcha!!!...");
+		}
+		else{
+			alert("Sorry...")
+		}
+	  };
   
-};
+	options.forEach((option, index) => {
+	  const btn = $('<button data-id="'+index+'"  id="ans">');
+	  btn.text(option);
+	  btn.on('click', handle);
+	  div.append(btn);
+	});
+  
+	$("div").append(div);
+  };
+  
 
 
