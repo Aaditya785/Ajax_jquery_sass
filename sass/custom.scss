@@ -26,12 +26,40 @@ body {
     border: 1px solid black;
     box-sizing: border-box;
     height: 100vh;
+    overflow: hidden;
+
 
     .info_dp {
         display: flex;
         justify-content: space-between;
         font-size: 2rem;
         box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        overflow: hidden;
+    }
+
+    .loader {
+        @include flex_center;
+        height: 50px;
+        width: 50px;
+        border-top: 4px solid #06fcfc;
+        border-right: 4px solid transparent;
+        border-radius: 50%;
+        color: #06fcfc;
+        animation: spin 1s linear infinite;
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        transform: translate(50%, -50%);
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
     }
 
     .q_a_box {
@@ -39,14 +67,18 @@ body {
         border-radius: 10px;
         border: 1px solid rgba(255, 255, 255, 0.18);
         height: fit-content;
-        position: absolute;
         border-radius: 10px;
+        position: relative;
         top: 50%;
         right: 50%;
         transform: translate(50%, -50%);
+        margin-bottom: 500px;
+
+
+
     }
 
-    #qst {
+    .qst {
         margin-top: 20%;
         text-align: center;
         font-size: 1.9rem;
@@ -58,7 +90,7 @@ body {
         margin-top: 10%;
         font-size: 2rem;
 
-        #ans {
+        .ans,.next {
             font-size: 1.3rem;
             margin: 5%;
             padding: 2%;
