@@ -1,5 +1,7 @@
 const sub_btn = $("#opt_box_btn");
 const load = $("#loading");
+var score = 0, bstScore = 0;
+// localStorage.setItem("bstScore",score);
 
 
 sub_btn.mouseover(() => {
@@ -43,7 +45,7 @@ async function here(url) {
 
 	console.log(dataArr);
 
-	if (dataArr.response_code == 1) {
+	if (result.response_code == 1) {
 		let Empty = $(`<h1>Sorry, Your Quiz Type Was Not In Database!!...</h1>`)
 		$(".main").append(Empty);
 	}
@@ -69,8 +71,10 @@ async function here(url) {
 		ansButtons.on("click", function () {
 			const currentButton = $(this);
 			if (currentButton.text() == data.correct_answer) {
-				alert("You Gotcha!!..")
-			}else{alert("Sorry Buddy..")}
+				alert("You Gotcha!!..");
+				score++;
+
+			} else { alert("Sorry Buddy..") }
 			ansButtons.hide();
 			nextButton.show();
 		});
@@ -83,9 +87,22 @@ async function here(url) {
 				nextQaData.show();
 			} else {
 				// Show a message or do something else when all questions have been answered
-				alert("You Take all the answers")
+
+				if(score>localStorage.getItem(bstScore))
+				{
+					localStorage.setItem("bstScore",score);
+				}
+
+				$(".main").append(`<div  class="scoreCard">
+				<h1>Your Score</h1>
+				<div class="score">
+					<p>Score: ${score}/10</p>
+					<p>BestScore: ${localStorage.getItem("bstScore")}/10</p>
+				</div>
+				<button onclick="location.reload()" >Restart</button>
+
+			</div>`);
 			}
 		});
 	});
 }
-

@@ -6,6 +6,12 @@
     align-items: center;
 }
 
+@mixin trans_center {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+}
 
 * {
     margin: 0px;
@@ -46,10 +52,7 @@ body {
         border-radius: 50%;
         color: #06fcfc;
         animation: spin 1s linear infinite;
-        position: absolute;
-        top: 50%;
-        right: 50%;
-        transform: translate(50%, -50%);
+        @include trans_center;
 
         @keyframes spin {
             0% {
@@ -68,10 +71,8 @@ body {
         border: 1px solid rgba(255, 255, 255, 0.18);
         height: fit-content;
         border-radius: 10px;
+        @include trans_center;
         position: relative;
-        top: 50%;
-        right: 50%;
-        transform: translate(50%, -50%);
         margin-bottom: 500px;
 
 
@@ -90,7 +91,8 @@ body {
         margin-top: 10%;
         font-size: 2rem;
 
-        .ans,.next {
+        .ans,
+        .next {
             font-size: 1.3rem;
             margin: 5%;
             padding: 2%;
@@ -101,6 +103,26 @@ body {
             border: none;
         }
     }
+
+}
+
+.scoreCard {
+    @include flex_center;
+    flex-direction: column;
+    border: 1px solid black;
+    width: fit-content;
+    padding: 20px;
+    border-radius: 10px;
+    @include trans_center;
+
+    button {
+        background-color: rgba(0, 0, 0, 0.2);
+        border: none;
+        padding: 5px;
+        border-radius: 10px;
+        font-weight: bold;
+        margin: 10px;
+    }
 }
 
 .opt_box {
@@ -110,10 +132,7 @@ body {
     box-shadow: 10px 10px 10px;
     flex-direction: column;
     padding: 50px;
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    transform: translate(50%, -50%);
+    @include trans_center;
 
     .sel_option {
         display: flex;
