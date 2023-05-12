@@ -4,7 +4,7 @@ var score = 0, bstScore = 0;
 // localStorage.setItem("bstScore",score);
 
 
-sub_btn.mouseover(() => {
+sub_btn.click(() => {
 	const category_text = $('#Category option:selected').text();
 	$('#info_catg').text(category_text);
 
