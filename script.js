@@ -71,15 +71,19 @@ async function here(url) {
 		ansButtons.on("click", function () {
 			const currentButton = $(this);
 			if (currentButton.text() == data.correct_answer) {
-				alert("You Gotcha!!..");
+				// alert("You Gotcha!!..");
+				const sound = new Audio("/tune/correct.mp3");
+
+				sound.play();
 				score++;
 
-			} else { alert("Sorry Buddy..") }
-			ansButtons.hide();
-			nextButton.show();
-		});
-
-		nextButton.on("click", function () {
+			} else { 
+				// alert("Sorry Buddy..") 
+				const sound = new Audio("/tune/wrong.mp3");
+				sound.play();
+			}
+			// ansButtons.hide();
+			// nextButton.show();
 			const currentQaData = $(this).closest(".q_a_box");
 			currentQaData.hide();
 			const nextQaData = currentQaData.next();
@@ -88,9 +92,8 @@ async function here(url) {
 			} else {
 				// Show a message or do something else when all questions have been answered
 
-				if(score>localStorage.getItem(bstScore))
-				{
-					localStorage.setItem("bstScore",score);
+				if (score > localStorage.getItem("bstScore")) {
+					localStorage.setItem("bstScore", score);
 				}
 
 				$(".main").append(`<div  class="scoreCard">
@@ -104,5 +107,30 @@ async function here(url) {
 			</div>`);
 			}
 		});
+
+		// nextButton.on("click", function () {
+		// 	const currentQaData = $(this).closest(".q_a_box");
+		// 	currentQaData.hide();
+		// 	const nextQaData = currentQaData.next();
+		// 	if (nextQaData.length) {
+		// 		nextQaData.show();
+		// 	} else {
+		// 		// Show a message or do something else when all questions have been answered
+
+		// 		if (score > localStorage.getItem(bstScore)) {
+		// 			localStorage.setItem("bstScore", score);
+		// 		}
+
+		// 		$(".main").append(`<div  class="scoreCard">
+		// 		<h1>Your Score</h1>
+		// 		<div class="score">
+		// 			<p>Score: ${score}/10</p>
+		// 			<p>BestScore: ${localStorage.getItem("bstScore")}/10</p>
+		// 		</div>
+		// 		<button onclick="location.reload()" >Restart</button>
+
+		// 	</div>`);
+		// 	}
+		// });
 	});
 }
