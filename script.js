@@ -54,6 +54,7 @@ async function here(url) {
 		console.log(data.question)
 
 		let qaData = $(`<div class="q_a_box" data-id=${i}>
+		     				<span class="q_no">${i + 1}/10</span>
                             <h2 class="qst">${data.question}</h2>
                             <div class="t_f"> 
                                 <button data-id="0" class="ans">True</button>
